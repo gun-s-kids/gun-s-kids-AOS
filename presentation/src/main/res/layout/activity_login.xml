@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.ehyundai.project.club.view.login.LoginViewModel" />
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -58,7 +63,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@drawable/ic_edit_text"
-                android:hint="  example@test.com"
+                android:hint="example@test.com"
+                android:maxLines="1"
+                android:text="@={viewModel.id}"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toTopOf="@id/tv_password"
                 app:layout_constraintTop_toBottomOf="@+id/tv_email" />
@@ -79,8 +86,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@drawable/ic_edit_text"
-                android:hint="  *****************"
+                android:hint="*****************"
                 android:inputType="textPassword"
+                android:text="@={viewModel.pw}"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toTopOf="@id/lo_find"
                 app:layout_constraintTop_toBottomOf="@+id/tv_password" />

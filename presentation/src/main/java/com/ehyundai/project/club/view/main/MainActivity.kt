@@ -19,6 +19,4 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             startActivity(nextIntent)
         }
     }
-
-
 }

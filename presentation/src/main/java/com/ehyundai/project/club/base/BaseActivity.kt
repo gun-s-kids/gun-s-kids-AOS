@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -54,5 +55,9 @@ abstract class BaseActivity<B : ViewDataBinding>(@LayoutRes private val resId: I
         super.onDestroy()
         Log.i(TAG, "onDestroy")
         _binding = null
+    }
+
+    protected fun showToast(msg: String) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 }
