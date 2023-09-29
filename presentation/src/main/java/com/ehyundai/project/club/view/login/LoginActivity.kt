@@ -8,6 +8,7 @@ import com.ehyundai.project.club.R
 import com.ehyundai.project.club.base.BaseActivity
 import com.ehyundai.project.club.databinding.ActivityLoginBinding
 import com.ehyundai.project.club.view.main.MainActivity
+import com.ehyundai.project.club.view.signUp.SignUpActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {
@@ -19,6 +20,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
         binding.viewModel = viewModel
         initViewModelCallback()
         login()
+        signUp()
+        findID()
+        findPW()
     }
 
     private fun initViewModelCallback() {
@@ -38,21 +42,46 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
         }
     }
 
-    private fun showIdEmptyError(){
+    private fun showIdEmptyError() {
         binding.etEmail.error = getString(R.string.id_empty_error_msg)
     }
 
-    private fun showPwEmptyError(){
+    private fun showPwEmptyError() {
         binding.etPassword.error = getString(R.string.pw_empty_error_msg)
     }
 
-    private fun enterMain(){
+    private fun enterMain() {
         showToast(getString(R.string.login_success_msg))
         startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
 
-    private fun login(){
+    private fun findAccount(type: String) {
+        val signUpIntent = Intent(this, FindAccountActivity::class.java)
+        when (type) {
+            "ID" -> signUpIntent.putExtra("type", "ID")
+            else -> signUpIntent.putExtra("type", "PW")
+        }
+        startActivity(signUpIntent)
+    }
+
+    private fun enterSignUp() {
+        startActivity(Intent(this, SignUpActivity::class.java))
+    }
+
+    private fun login() {
         binding.btnSignIn.setOnClickListener { viewModel.onLoginClick() }
+    }
+
+    private fun signUp() {
+        binding.btnSignUp.setOnClickListener { enterSignUp() }
+    }
+
+    private fun findID() {
+        binding.btnFindId.setOnClickListener { findAccount("ID") }
+    }
+
+    private fun findPW() {
+        binding.btnFindPw.setOnClickListener { findAccount("PW") }
     }
 }
