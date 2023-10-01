@@ -9,7 +9,6 @@ import com.ehyundai.project.club.base.BaseActivity
 import com.ehyundai.project.club.databinding.ActivityLoginBinding
 import com.ehyundai.project.club.view.main.MainActivity
 import com.ehyundai.project.club.view.signUp.SignUpActivity
-import dagger.hilt.android.AndroidEntryPoint
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {
     private val viewModel: LoginViewModel by viewModels()
