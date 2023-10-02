@@ -14,19 +14,16 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.viewModel = viewModel
-
-        setSignUp()
+        setFragment(3)
     }
 
     @SuppressLint("CommitTransaction")
-    private fun setSignUp() {
-        val transaction = supportFragmentManager.beginTransaction().add(R.id.fl, SignUpFragment())
-        transaction.commit()
-    }
-
-    @SuppressLint("CommitTransaction")
-    private fun setAuthMail() {
-        val transaction = supportFragmentManager.beginTransaction().add(R.id.fl, AuthMailFragment())
-        transaction.commit()
+    fun setFragment(type: Int) {
+        val transaction = supportFragmentManager.beginTransaction()
+        when(type){
+            1 -> transaction.replace(R.id.fl, SignUpFragment()).commit()
+            2 -> transaction.replace(R.id.fl, AuthMailFragment()).commit()
+            else -> transaction.replace(R.id.fl, MailFragment()).commit()
+        }
     }
 }
