@@ -20,6 +20,7 @@ class AuthMailFragment : BaseFragment<FragmentAuthMailBinding>(R.layout.fragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.viewModel = viewModel
         goSignUp()
     }
 
