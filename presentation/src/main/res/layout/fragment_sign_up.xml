@@ -68,6 +68,7 @@
                     android:layout_height="40dp"
                     android:background="@drawable/ic_edit_text"
                     android:hint="  이두희"
+                    android:singleLine="true"
                     android:textSize="15sp"
                     app:layout_constraintBottom_toTopOf="@id/tv_nick_name"
                     app:layout_constraintTop_toBottomOf="@+id/tv_name" />
@@ -90,6 +91,7 @@
                     android:layout_height="40dp"
                     android:background="@drawable/ic_edit_text"
                     android:hint="  두히이"
+                    android:singleLine="true"
                     android:textSize="15sp"
                     app:layout_constraintBottom_toTopOf="@id/tv_email"
                     app:layout_constraintTop_toBottomOf="@+id/tv_nick_name" />
@@ -134,6 +136,7 @@
                     android:background="@drawable/ic_edit_text"
                     android:hint="  *****************"
                     android:inputType="textPassword"
+                    android:singleLine="true"
                     android:textSize="15sp"
                     app:layout_constraintBottom_toTopOf="@id/tv_confirm_password"
                     app:layout_constraintTop_toBottomOf="@+id/tv_password" />
@@ -156,6 +159,7 @@
                     android:background="@drawable/ic_edit_text"
                     android:hint="  *****************"
                     android:inputType="textPassword"
+                    android:singleLine="true"
                     android:textSize="15sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_confirm_password" />

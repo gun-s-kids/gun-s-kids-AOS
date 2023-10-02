@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
     <data>
+
         <variable
             name="viewModel"
             type="com.ehyundai.project.club.view.login.LoginViewModel" />
@@ -62,7 +64,7 @@
                 android:layout_height="40dp"
                 android:background="@drawable/ic_edit_text"
                 android:hint="example@test.com"
-                android:maxLines="1"
+                android:singleLine="true"
                 android:text="@={viewModel.id}"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toTopOf="@id/tv_password"
@@ -86,6 +88,7 @@
                 android:background="@drawable/ic_edit_text"
                 android:hint="*****************"
                 android:inputType="textPassword"
+                android:singleLine="true"
                 android:text="@={viewModel.pw}"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toTopOf="@id/lo_find"
