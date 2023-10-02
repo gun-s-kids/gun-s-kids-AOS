@@ -66,4 +66,7 @@ dependencies {
     implementation("androidx.activity:activity-ktx:1.7.2")
     implementation("androidx.fragment:fragment-ktx:1.6.1")
     implementation("androidx.fragment:fragment-ktx:1.6.1")
+
+//    OTP EditView 종속성 추가
+    implementation("com.github.swapnil1104:OtpEditText:1.0.2-rc")
 }
