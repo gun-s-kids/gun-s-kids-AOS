@@ -3,7 +3,8 @@ package com.ehyundai.project.club.view.profile
 import android.content.Context
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.viewModels
 import com.ehyundai.project.club.R
 import com.ehyundai.project.club.base.BaseFragment
 import com.ehyundai.project.club.databinding.FragmentProfileBinding
@@ -11,7 +12,7 @@ import com.ehyundai.project.club.view.main.MainActivity
 
 class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_profile) {
     private var parentActivity: MainActivity? = null
-    private val viewModel: ProfileViewModel by activityViewModels()
+    private val viewModel: ProfileViewModel by viewModels()
     override val TAG: String = "ProfileFragment"
 
     override fun onAttach(context: Context) {
@@ -22,10 +23,19 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
+        transaction("view")
     }
 
     override fun onDetach() {
         super.onDetach()
         parentActivity = null
+    }
+
+    private fun transaction(type: String){
+        val childFt: FragmentTransaction = childFragmentManager.beginTransaction()
+        when (type){
+            "edit" -> childFt.replace(binding.flContent.id, ProfileEditFragment()).commit()
+            else -> childFt.replace(binding.flContent.id, ProfileMainFragment()).commit()
+        }
     }
 }
