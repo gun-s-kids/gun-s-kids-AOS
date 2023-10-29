@@ -21,8 +21,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         TabLayoutMediator(binding.tlMain, binding.vpMain) { _, _ -> }.attach()
 
         // set tabIcon
-        binding.tlMain.getTabAt(0)!!.setIcon(R.drawable.ic_search_rank_down)
-        binding.tlMain.getTabAt(1)!!.setIcon(R.drawable.ic_search_no_change)
-        binding.tlMain.getTabAt(2)!!.setIcon(R.drawable.ic_search_rank_up)
+        binding.tlMain.getTabAt(0)!!.setIcon(R.drawable.ic_search)
+        binding.tlMain.getTabAt(1)!!.setIcon(R.drawable.ic_group)
+        binding.tlMain.getTabAt(2)!!.setIcon(R.drawable.ic_profile)
     }
 }
