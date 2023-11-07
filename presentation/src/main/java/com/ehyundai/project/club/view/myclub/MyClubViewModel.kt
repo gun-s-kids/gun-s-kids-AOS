@@ -2,8 +2,9 @@ package com.ehyundai.project.club.view.myclub
 
 import com.ehyundai.project.club.base.BaseViewModel
 import com.ehyundai.project.club.view.Club
+import javax.inject.Inject
 
-class MyClubViewModel : BaseViewModel() {
+class MyClubViewModel @Inject constructor() : BaseViewModel() {
 
 ////    var clubs : MutableList<Club> = mutableListOf()
 //    val size get() = clubs.size
