@@ -1,4 +1,4 @@
-package com.ehyundai.project.club.view.signUp
+package com.ehyundai.project.club.view.account
 
 import android.content.Context
 import android.os.Bundle
@@ -9,7 +9,6 @@ import com.broooapps.otpedittext2.OnCompleteListener
 import com.ehyundai.project.club.R
 import com.ehyundai.project.club.base.BaseFragment
 import com.ehyundai.project.club.databinding.FragmentAuthMailBinding
-import com.ehyundai.project.club.view.login.FindAccountActivity
 
 
 class AuthMailFragment : BaseFragment<FragmentAuthMailBinding>(R.layout.fragment_auth_mail) {

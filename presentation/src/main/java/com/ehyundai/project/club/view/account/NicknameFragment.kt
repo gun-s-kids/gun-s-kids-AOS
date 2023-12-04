@@ -1,4 +1,4 @@
-package com.ehyundai.project.club.view.signUp
+package com.ehyundai.project.club.view.account
 
 import android.app.Activity
 import android.content.Context

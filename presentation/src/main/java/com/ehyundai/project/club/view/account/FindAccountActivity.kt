@@ -1,4 +1,4 @@
-package com.ehyundai.project.club.view.login
+package com.ehyundai.project.club.view.account
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -6,10 +6,8 @@ import androidx.activity.viewModels
 import com.ehyundai.project.club.R
 import com.ehyundai.project.club.base.BaseActivity
 import com.ehyundai.project.club.databinding.ActivityFindAccountBinding
-import com.ehyundai.project.club.view.signUp.AuthMailFragment
-import com.ehyundai.project.club.view.signUp.MailFragment
-import com.ehyundai.project.club.view.signUp.PasswordFragment
-import com.ehyundai.project.club.view.signUp.SignUpViewModel
+import com.ehyundai.project.club.view.account.PasswordFragment
+import com.ehyundai.project.club.view.account.SignUpViewModel
 
 class FindAccountActivity : BaseActivity<ActivityFindAccountBinding>(R.layout.activity_find_account) {
     private val viewModel: SignUpViewModel by viewModels()

@@ -1,4 +1,4 @@
-package com.ehyundai.project.club.view.signUp
+package com.ehyundai.project.club.view.account
 
 import android.content.Context
 import android.os.Bundle
@@ -6,14 +6,13 @@ import android.view.View
 import androidx.fragment.app.activityViewModels
 import com.ehyundai.project.club.R
 import com.ehyundai.project.club.base.BaseFragment
-import com.ehyundai.project.club.databinding.FragmentPasswordBinding
-import com.ehyundai.project.club.view.login.FindAccountActivity
+import com.ehyundai.project.club.databinding.FragmentMailBinding
 
-class PasswordFragment : BaseFragment<FragmentPasswordBinding>(R.layout.fragment_password) {
+class MailFragment : BaseFragment<FragmentMailBinding>(R.layout.fragment_mail) {
     private var signUpActivity: SignUpActivity? = null
     private var findAccountActivity: FindAccountActivity? = null
     private val viewModel: SignUpViewModel by activityViewModels()
-    override val TAG: String = "PasswordFragment"
+    override val TAG: String = "MailFragment"
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -26,7 +25,8 @@ class PasswordFragment : BaseFragment<FragmentPasswordBinding>(R.layout.fragment
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
-        clickButton()
+        goAuthMail()
+        activity
     }
 
     override fun onDetach() {
@@ -35,10 +35,10 @@ class PasswordFragment : BaseFragment<FragmentPasswordBinding>(R.layout.fragment
         findAccountActivity = null
     }
 
-    private fun clickButton() {
+    private fun goAuthMail() {
         binding.btnSignUp.setOnClickListener {
-            if (signUpActivity != null) signUpActivity?.setFragment(4)
-            else if (findAccountActivity != null) findAccountActivity?.finish()
+            if (signUpActivity != null) signUpActivity?.setFragment(2)
+            else if (findAccountActivity != null) findAccountActivity?.setFragment(2)
         }
     }
 }
