@@ -1,6 +1,7 @@
 package com.ehyundai.project.club.view.login
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
@@ -8,7 +9,8 @@ import com.ehyundai.project.club.R
 import com.ehyundai.project.club.base.BaseActivity
 import com.ehyundai.project.club.databinding.ActivityLoginBinding
 import com.ehyundai.project.club.view.main.MainActivity
-import com.ehyundai.project.club.view.signUp.SignUpActivity
+import com.ehyundai.project.club.view.account.FindAccountActivity
+import com.ehyundai.project.club.view.account.SignUpActivity
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {
     private val viewModel: LoginViewModel by viewModels()
@@ -77,10 +79,18 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
     }
 
     private fun findID() {
-        binding.btnFindId.setOnClickListener { findAccount("ID") }
+        binding.btnFindId.setOnClickListener {
+            val url = "https://webmail.ehyundai.com/mail/find/id"
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            startActivity(intent)
+        }
     }
 
     private fun findPW() {
-        binding.btnFindPw.setOnClickListener { findAccount("PW") }
+        binding.btnFindPw.setOnClickListener {
+            val signUpIntent = Intent(this, FindAccountActivity::class.java)
+            startActivity(signUpIntent)
+        }
+
     }
 }

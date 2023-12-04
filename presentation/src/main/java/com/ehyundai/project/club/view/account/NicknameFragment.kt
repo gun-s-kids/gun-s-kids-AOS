@@ -1,21 +1,22 @@
-package com.ehyundai.project.club.view.signUp
+package com.ehyundai.project.club.view.account
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import com.ehyundai.project.club.R
 import com.ehyundai.project.club.base.BaseFragment
-import com.ehyundai.project.club.databinding.FragmentSignUpBinding
+import com.ehyundai.project.club.databinding.FragmentNicknameBinding
 
-class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sign_up) {
-    private var parentActivity: SignUpActivity? = null
+class NicknameFragment : BaseFragment<FragmentNicknameBinding>(R.layout.fragment_nickname) {
+    private var parentActivity: Activity? = null
     private val viewModel: SignUpViewModel by activityViewModels()
-    override val TAG: String = "SignUpFragment"
+    override val TAG: String = "NicknameFragment"
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        parentActivity = activity as SignUpActivity
+        parentActivity = activity
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

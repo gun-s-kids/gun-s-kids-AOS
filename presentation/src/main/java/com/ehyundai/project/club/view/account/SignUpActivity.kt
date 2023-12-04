@@ -1,4 +1,4 @@
-package com.ehyundai.project.club.view.signUp
+package com.ehyundai.project.club.view.account
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -14,16 +14,18 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.viewModel = viewModel
+        viewModel.setTitle(1)
         setFragment(3)
     }
 
     @SuppressLint("CommitTransaction")
     fun setFragment(type: Int) {
         val transaction = supportFragmentManager.beginTransaction()
-        when(type){
-            1 -> transaction.replace(R.id.fl, SignUpFragment()).commit()
+        when (type) {
+            1 -> transaction.replace(R.id.fl, PasswordFragment()).commit()
             2 -> transaction.replace(R.id.fl, AuthMailFragment()).commit()
-            else -> transaction.replace(R.id.fl, MailFragment()).commit()
+            3 -> transaction.replace(R.id.fl, MailFragment()).commit()
+            4 -> transaction.replace(R.id.fl, NicknameFragment()).commit()
         }
     }
 }

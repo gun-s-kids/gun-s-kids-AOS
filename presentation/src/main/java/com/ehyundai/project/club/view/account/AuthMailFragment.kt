@@ -1,4 +1,4 @@
-package com.ehyundai.project.club.view.signUp
+package com.ehyundai.project.club.view.account
 
 import android.content.Context
 import android.os.Bundle
@@ -12,13 +12,17 @@ import com.ehyundai.project.club.databinding.FragmentAuthMailBinding
 
 
 class AuthMailFragment : BaseFragment<FragmentAuthMailBinding>(R.layout.fragment_auth_mail) {
-    private var parentActivity: SignUpActivity? = null
+    private var signUpActivity: SignUpActivity? = null
+    private var findAccountActivity: FindAccountActivity? = null
     private val viewModel: SignUpViewModel by activityViewModels()
     override val TAG: String = "AuthMailFragment"
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        parentActivity = activity as SignUpActivity
+        if (context is SignUpActivity)
+            signUpActivity = context
+        else if (context is FindAccountActivity)
+            findAccountActivity = context
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -30,18 +34,26 @@ class AuthMailFragment : BaseFragment<FragmentAuthMailBinding>(R.layout.fragment
 
     override fun onDetach() {
         super.onDetach()
-        parentActivity = null
+        signUpActivity = null
+        findAccountActivity = null
     }
 
     private fun goSignUp() {
         binding.btnSignUp.setOnClickListener {
-            if (parentActivity != null) parentActivity?.setFragment(1)
+            if (signUpActivity != null) {
+                signUpActivity?.setFragment(1)
+                viewModel.setTitle(3)
+            } else if (findAccountActivity != null) {
+                findAccountActivity?.setFragment(1)
+                viewModel.setTitle(4)
+            }
         }
     }
 
     private fun completeCode() {
         binding.etCode.setOnCompleteListener(OnCompleteListener { value ->
-            Toast.makeText(parentActivity, "Completed $value", Toast.LENGTH_LONG).show() }
+            if (signUpActivity != null) Toast.makeText(signUpActivity, "Completed $value", Toast.LENGTH_LONG).show()
+            else if (findAccountActivity != null) Toast.makeText(findAccountActivity, "Completed $value", Toast.LENGTH_LONG).show() }
         )
     }
 }

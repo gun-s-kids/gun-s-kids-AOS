@@ -4,8 +4,9 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.ehyundai.project.club.base.BaseViewModel
+import javax.inject.Inject
 
-class LoginViewModel : BaseViewModel() {
+class LoginViewModel @Inject constructor() : BaseViewModel() {
     val id: MutableLiveData<String> = MutableLiveData("")
     val pw: MutableLiveData<String> = MutableLiveData("")
 
