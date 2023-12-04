@@ -1,6 +1,7 @@
 package com.ehyundai.project.club.view.profile
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -22,6 +23,10 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
+        binding.btnSignUp.setOnClickListener {
+            val intent = Intent(activity, ProfileEditActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onDetach() {
