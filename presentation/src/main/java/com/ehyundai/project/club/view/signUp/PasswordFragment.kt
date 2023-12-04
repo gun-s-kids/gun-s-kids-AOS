@@ -3,20 +3,17 @@ package com.ehyundai.project.club.view.signUp
 import android.content.Context
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import com.broooapps.otpedittext2.OnCompleteListener
 import com.ehyundai.project.club.R
 import com.ehyundai.project.club.base.BaseFragment
-import com.ehyundai.project.club.databinding.FragmentAuthMailBinding
+import com.ehyundai.project.club.databinding.FragmentPasswordBinding
 import com.ehyundai.project.club.view.login.FindAccountActivity
 
-
-class AuthMailFragment : BaseFragment<FragmentAuthMailBinding>(R.layout.fragment_auth_mail) {
+class PasswordFragment : BaseFragment<FragmentPasswordBinding>(R.layout.fragment_password) {
     private var signUpActivity: SignUpActivity? = null
     private var findAccountActivity: FindAccountActivity? = null
     private val viewModel: SignUpViewModel by activityViewModels()
-    override val TAG: String = "AuthMailFragment"
+    override val TAG: String = "PasswordFragment"
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -29,8 +26,7 @@ class AuthMailFragment : BaseFragment<FragmentAuthMailBinding>(R.layout.fragment
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
-        goSignUp()
-        completeCode()
+        clickButton()
     }
 
     override fun onDetach() {
@@ -39,22 +35,10 @@ class AuthMailFragment : BaseFragment<FragmentAuthMailBinding>(R.layout.fragment
         findAccountActivity = null
     }
 
-    private fun goSignUp() {
+    private fun clickButton() {
         binding.btnSignUp.setOnClickListener {
-            if (signUpActivity != null) {
-                signUpActivity?.setFragment(1)
-                viewModel.setTitle(3)
-            } else if (findAccountActivity != null) {
-                findAccountActivity?.setFragment(1)
-                viewModel.setTitle(4)
-            }
+            if (signUpActivity != null) signUpActivity?.setFragment(4)
+            else if (findAccountActivity != null) findAccountActivity?.finish()
         }
-    }
-
-    private fun completeCode() {
-        binding.etCode.setOnCompleteListener(OnCompleteListener { value ->
-            if (signUpActivity != null) Toast.makeText(signUpActivity, "Completed $value", Toast.LENGTH_LONG).show()
-            else if (findAccountActivity != null) Toast.makeText(findAccountActivity, "Completed $value", Toast.LENGTH_LONG).show() }
-        )
     }
 }

@@ -7,12 +7,12 @@ import android.view.View
 import androidx.fragment.app.activityViewModels
 import com.ehyundai.project.club.R
 import com.ehyundai.project.club.base.BaseFragment
-import com.ehyundai.project.club.databinding.FragmentSignUpBinding
+import com.ehyundai.project.club.databinding.FragmentNicknameBinding
 
-class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sign_up) {
+class NicknameFragment : BaseFragment<FragmentNicknameBinding>(R.layout.fragment_nickname) {
     private var parentActivity: Activity? = null
     private val viewModel: SignUpViewModel by activityViewModels()
-    override val TAG: String = "SignUpFragment"
+    override val TAG: String = "NicknameFragment"
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

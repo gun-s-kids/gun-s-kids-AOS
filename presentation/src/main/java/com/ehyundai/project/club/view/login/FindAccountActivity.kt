@@ -8,7 +8,7 @@ import com.ehyundai.project.club.base.BaseActivity
 import com.ehyundai.project.club.databinding.ActivityFindAccountBinding
 import com.ehyundai.project.club.view.signUp.AuthMailFragment
 import com.ehyundai.project.club.view.signUp.MailFragment
-import com.ehyundai.project.club.view.signUp.SignUpFragment
+import com.ehyundai.project.club.view.signUp.PasswordFragment
 import com.ehyundai.project.club.view.signUp.SignUpViewModel
 
 class FindAccountActivity : BaseActivity<ActivityFindAccountBinding>(R.layout.activity_find_account) {
@@ -17,7 +17,7 @@ class FindAccountActivity : BaseActivity<ActivityFindAccountBinding>(R.layout.ac
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.viewModel = viewModel
-        viewModel.setTitle(false)
+        viewModel.setTitle(2)
         setFragment(3)
     }
 
@@ -25,7 +25,7 @@ class FindAccountActivity : BaseActivity<ActivityFindAccountBinding>(R.layout.ac
     fun setFragment(type: Int) {
         val transaction = supportFragmentManager.beginTransaction()
         when(type){
-            1 -> transaction.replace(R.id.fl, SignUpFragment()).commit()
+            1 -> transaction.replace(R.id.fl, PasswordFragment()).commit()
             2 -> transaction.replace(R.id.fl, AuthMailFragment()).commit()
             else -> transaction.replace(R.id.fl, MailFragment()).commit()
         }
