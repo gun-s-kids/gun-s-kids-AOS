@@ -1,5 +1,6 @@
 package com.ehyundai.project.club.view.signUp
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.view.View
@@ -9,13 +10,13 @@ import com.ehyundai.project.club.base.BaseFragment
 import com.ehyundai.project.club.databinding.FragmentSignUpBinding
 
 class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sign_up) {
-    private var parentActivity: SignUpActivity? = null
+    private var parentActivity: Activity? = null
     private val viewModel: SignUpViewModel by activityViewModels()
     override val TAG: String = "SignUpFragment"
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        parentActivity = activity as SignUpActivity
+        parentActivity = activity
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
